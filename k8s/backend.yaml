@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aturin-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aturin-backend
+  template:
+    metadata:
+      labels:
+        app: aturin-backend
+    spec:
+      containers:
+      - name: aturin-backend
+        image: aturin-backend:uas
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "500m"
