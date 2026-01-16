@@ -29,8 +29,10 @@ kind: Service
 metadata:
   name: aturin-backend-service
 spec:
+  type: ClusterIP
   selector:
     app: aturin-backend
   ports:
-    - protocol: "TCP"
+    - protocol: TCP
       port: 5000
+      targetPort: 5000
